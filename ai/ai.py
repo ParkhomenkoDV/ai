@@ -55,10 +55,7 @@ class AI:
             text += "и открывать браузер"
             self.tts.play(text, self.sample_rate)
         elif command == 'joke':
-            jokes = ('Как смеются программисты? ... ехе ехе ехе',
-                     'ЭсКьюЭль запрос заходит в бар, подходит к двум столам и спрашивает .. «м+ожно присоединиться?»',
-                     'Программист это машина для преобразования кофе в код')
-            joke = random.choice(jokes)
+            joke = random.choice(config.JOKES)
             self.tts.play(joke, self.sample_rate)
         elif command == 'cdate':
             now = time.strftime('%Y.%m.%d.%H.%M.%S', time.localtime())
@@ -70,7 +67,7 @@ class AI:
             year, month, day, hour, minute, second = map(int, now.split('.'))
             text = f"Сейч+ас {hour} часов {minute} минут {second} секунд"
             self.tts.play(text, self.sample_rate)
-        elif command == 'open_browser':
+        elif command == 'browser':
             chrome_path = 'C:/Program Files/Mozilla Firefox/firefox.exe %s'
             webbrowser.get(chrome_path).open("http://python.org")
 
